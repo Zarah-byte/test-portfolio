@@ -50,15 +50,26 @@ body {
 header {
   position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 1.5rem 0.75rem;
   background-color: #f9f9f9;
   border-radius: 0 0 2rem 2rem;
 
+  margin-bottom: .2rem;
+
   /* Mobile: show hamburger, keep nav collapsed by default */
   nav {
-    display: none;
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateY(-0.25rem);
+    transition:
+      max-height 260ms ease,
+      opacity 200ms ease,
+      transform 200ms ease;
 
     ul {
       font-size: 1.1rem;
@@ -86,14 +97,14 @@ header {
 
 /* When hamburger is active, reveal the nav on mobile */
 .ham.active + nav {
-  display: block;
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
-/* Keep hamburger fixed in the top-right on mobile, even when nav opens */
 header .ham {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  align-self: flex-end;
 }
 
 main {
