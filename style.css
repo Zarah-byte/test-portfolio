@@ -3,33 +3,74 @@
 }
 
 body {
-font-family: "Geist",sans-serif;
-
+  font-family: "Geist", sans-serif;
   scroll-behavior: smooth;
   background-color: var(--black);
 }
 
+/* Base styles for hamburger */
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #000;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.ham4 .top {
+  stroke-dasharray: 40 121;
+}
+
+.ham4 .bottom {
+  stroke-dasharray: 40 121;
+}
+
+.ham4.active .top {
+  stroke-dashoffset: -68px;
+}
+
+.ham4.active .bottom {
+  stroke-dashoffset: -68px;
+}
+
 header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 0 0 2rem 2rem;
+
+  /* Mobile: show hamburger, keep nav collapsed by default */
   nav {
+    display: none;
+
     ul {
       font-size: 1.1rem;
       font-weight: 500;
       display: flex;
-      justify-content: space-around;
-      align-items: center;
-      
-      
+      flex-direction: column;
       gap: 1rem;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      margin-bottom: .25rem;
-      
+      margin-top: 1rem;
+      padding: 1.5rem 1rem;
       background-color: #f9f9f9;
-      border-radius: 0 0 2rem 2rem;
-
 
       li {
-        /* Reset strips li styles — re-apply so your rules take effect */
         text-align: center;
         padding: 0.25em 0.5em;
         color: inherit;
@@ -41,6 +82,18 @@ header {
       }
     }
   }
+}
+
+/* When hamburger is active, reveal the nav on mobile */
+.ham.active + nav {
+  display: block;
+}
+
+/* Keep hamburger fixed in the top-right on mobile, even when nav opens */
+header .ham {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
 }
 
 main {
@@ -82,9 +135,10 @@ main {
     }
 
     h2 {
+      /* Mobile-first: smaller section heading */
       font-family: "Rethink Sans";
       font-weight: 800;
-      font-size: 4rem;
+      font-size: 2.2rem;
     }
   }
 
@@ -216,6 +270,36 @@ footer {
     padding-right: 4rem;
     font-size: 4.5rem;
     line-height: 4.2rem;
+  }
+
+  /* Tablet/desktop: restore large section heading size */
+  .projects .project-header h2 {
+    font-size: 4rem;
+  }
+
+  /* Tablet/desktop: hide hamburger, show horizontal nav */
+  header {
+    justify-content: center;
+  }
+
+  header .ham {
+    display: none;
+  }
+
+  header nav {
+    display: block;
+  }
+
+  header nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 0 0 2rem 2rem;
   }
 
   /* Projects: side‑by‑side layout on wider screens */
