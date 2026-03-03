@@ -1,0 +1,243 @@
+:root {
+  --black: #000000;
+}
+
+body {
+font-family: "Geist",sans-serif;
+
+  scroll-behavior: smooth;
+  background-color: var(--black);
+}
+
+header {
+  nav {
+    ul {
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      
+      
+      gap: 1rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      margin-bottom: .25rem;
+      
+      background-color: #f9f9f9;
+      border-radius: 0 0 2rem 2rem;
+
+
+      li {
+        /* Reset strips li styles — re-apply so your rules take effect */
+        text-align: center;
+        padding: 0.25em 0.5em;
+        color: inherit;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+main {
+  .hero {
+    background-color: #f9f9f9;
+    border-radius: 2rem;
+    margin-bottom: 0.25rem;
+
+    /* Mobile-first heading */
+    h1 {
+      padding: 4rem 1.75rem 2.5rem;
+      font-family: "Rethink Sans", sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.15;
+      text-transform: uppercase;
+
+      em {
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.projects {
+  .project-header {
+    background-color: #f9f9f9;
+    border-radius: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 0.25rem;
+    margin-top: 2rem;
+
+    text-align: center;
+
+    .micro-text {
+      text-transform: uppercase;
+      padding-top: 2rem;
+    }
+
+    h2 {
+      font-family: "Rethink Sans";
+      font-weight: 800;
+      font-size: 4rem;
+    }
+  }
+
+  /* li is inside .projects ul, not .project-header — selector must match HTML */
+  ul {
+      margin-bottom: 2rem;
+  
+    li {
+      display: flex;
+      /* Mobile-first: stack image and content */
+      flex-direction: column;
+      margin-bottom: 1rem;
+      
+      .project-info {
+      /* Mobile-first: full width below image */
+      width: 100%;
+      background-color: #f9f9f9;
+      border-radius: 2rem;
+
+      padding: 2rem;
+
+      .heading-date{
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+        gap: 1rem;
+      
+            h3{
+            font-family: "Rethink Sans";
+            text-transform: capitalize;
+            font-weight: 600;
+            font-size: 3rem;
+          }
+          p.date {
+            font-family: "Geist Mono";
+            font-size: 1.5rem;
+          }
+        }
+
+        .tag {
+          display: inline-block;
+          margin-top: 5rem;
+          padding: 0.5rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          border: 1px solid #000000; 
+          border-radius: 2rem;  
+        }
+    }
+
+    /* Sourced from :https://codepen.io/keralpatel/pen/BajqRWK */
+
+      /* Shine sweep (ONLY on hover) — keeps your existing img styling exactly */
+      .project-image {
+        position: relative;
+        display: inline-block; /* shrink-wrap to the img so its size stays identical */
+        border-radius: 2rem;   /* matches your img radius */
+        overflow: hidden;      /* clips the shine sweep */
+        margin-right: .1rem;  /* keeps your original spacing */
+      }
+
+      .project-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 45%;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateX(-160%) skewX(-25deg);
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.0) 0%,
+          rgba(255, 255, 255, 0.14) 35%,
+          rgba(255, 255, 255, 0.55) 50%,
+          rgba(255, 255, 255, 0.14) 65%,
+          rgba(255, 255, 255, 0.0) 100%
+        );
+      }
+
+      .project-image:hover::before,
+      .project-image:focus-within::before {
+        opacity: 1;
+        animation: shine-sweep 900ms ease-in-out;
+      }
+
+      img {
+        /* Mobile-first image: full width, shorter height */
+        width: 100%;
+        height: 40vh;
+        border-radius: 2rem;
+        object-fit: cover;
+        overflow: hidden;
+        border: 1rem solid #f9f9f9;}
+    }
+  }
+}
+
+footer {
+  height: 60vh;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  
+  background-color: #f9f9f9;
+  border-radius: 2rem 2rem 0 0;
+}
+
+
+@keyframes shine-sweep {
+  0%   { transform: translateX(-160%) skewX(-25deg); }
+  100% { transform: translateX(320%)  skewX(-25deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-image::before {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}
+
+
+/* media queries */
+@media (min-width: 768px) {
+  /* Tablet/desktop hero heading (original large style) */
+  main .hero h1 {
+    padding-top: 20rem;
+    padding-left: 7rem;
+    padding-right: 4rem;
+    font-size: 4.5rem;
+    line-height: 4.2rem;
+  }
+
+  /* Projects: side‑by‑side layout on wider screens */
+  .projects ul li {
+    flex-direction: row;
+  }
+
+  .projects ul li .project-info {
+    width: 60vw;
+    padding: 5rem;
+  }
+
+  .projects ul li img {
+    width: 40vw;
+    height: 60vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Slightly larger hero on big desktops */
+  main .hero h1 {
+    font-size: 6rem;
+    line-height: 5rem;
+  }
+}
