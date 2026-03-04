@@ -1,91 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- META TAG https://typography-interaction-2526.github.io/topic/responsive/#viewport-meta-tag -->
-	
-    <link rel="stylesheet" href="reset.css">
-	<link rel="stylesheet" href="style.css">
-    <script defer src="main.js"></script>
-    
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-	
-    <!-- ==============FONTS ============== -->
-	
-	<title>Test portfolio page</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-top">
-                <a href="/" class="logo" aria-label="Home">
-                    <img src="assets/LOGO.svg" alt="" width="59" height="20">
-                </a>
-                <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="48" onclick="this.classList.toggle('active')" aria-label="Open menu">
-                    <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
-                    <path class="line middle" d="m 70,50 h -40" />
-                    <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
-                </svg>
-            </div>
-            <ul>
-                <li>Work</li>
-                <li><a href="">Code</a></li>
-                <li>Play</li>
-                <li>About</li>
-                <li>Resume</li>
-            </ul>
-        </nav>
-    </header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <main>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="main.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+  <title>Test portfolio page</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-top">
+        <a href="/" class="logo">
+          <img src="assets/LOGO.svg" alt="" width="59" height="20">
+        </a>
+
+        <!-- Native HTML control (better than onclick on svg) -->
+        <button class="menu-toggle" type="button">
+          <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="48">
+            <path class="line top"
+              d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+            <path class="line middle" d="m 70,50 h -40" />
+            <path class="line bottom"
+              d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+          </svg>
+        </button>
+      </div>
+
+      <ul>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Code</a></li>
+        <li><a href="#">Play</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
     <section class="hero">
-        <h1>Crafting the space between <em>feeling</em> and <em>function</em>.</h1>
+      <h1>Crafting the space between <em>feeling</em> and <em>function</em>.</h1>
     </section>
 
     <section class="projects">
-        <hgroup class="project-header">
-            <p class="micro-text">Best of the Best</p>
-            <h2>Featured Works</h2>
-        </hgroup>
-        <ul>
-        <li>
-            <div class="project-image">
-                <img src="/assets/image-test.jpg" alt="">
-              </div>
-                <section class="project-info">
-                    <div class="heading-date">
-                        <h3>Nura</h3>
-                        <p class="date">2025</p>
-                    </div>
-                    <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <hgroup class="project-header">
+        <p class="micro-text">Best of the Best</p>
+        <h2>Featured Works</h2>
+      </hgroup>
 
-                    <p class="tag">UI/UX</p>
-                </section>
-            </li>
-        </ul>
+      <ul>
+        <li>
+          <div class="project-image">
+            <img src="assets/image-test.jpg" alt="">
+          </div>
+
+          <section class="project-info">
+            <div class="heading-date">
+              <h3>Nura</h3>
+              <p class="date">2025</p>
+            </div>
+
+            <p class="bio">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <p class="tag">UI/UX</p>
+          </section>
+        </li>
+      </ul>
     </section>
-<p></p>
-    </main>
+  </main>
 
-    <footer>
-<section class="socials">
-    <ul>
-        <li>
-            Email
-        </li>
-        <li>
-            LinkedIn
-        </li>
-        <li>
-            Github
-        </li>
-    </ul>
-</section>
-    </footer>
+  <footer></footer>
 </body>
 </html>
